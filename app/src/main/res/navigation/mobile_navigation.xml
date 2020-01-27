@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_surveys">
+
+    <fragment
+        android:id="@+id/nav_surveys"
+        android:name="com.example.croesus.views.ui.home.SurveysFragment"
+        android:label="@string/menu_surveys"
+        tools:layout="@layout/fragment_surveys">
+        <action
+            android:id="@+id/openQuestions"
+            app:destination="@id/questions_fragment" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_profile"
+        android:name="com.example.croesus.views.ui.gallery.UsersFragment"
+        android:label="@string/menu_profile"
+        tools:layout="@layout/fragment_user">
+        <action
+            android:id="@+id/open_survey_screen"
+            app:destination="@id/nav_surveys" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/questions_fragment"
+        android:name="com.example.croesus.views.ui.home.QuestionsFragment"
+        android:label="@string/menu_questions"
+        tools:layout="@layout/fragment_questions">
+        <argument
+            android:name="survey_id"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+</navigation>
